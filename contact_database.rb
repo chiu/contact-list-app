@@ -1,7 +1,8 @@
 ## TODO: Implement CSV reading/writing
 require 'csv'
-require 'ftools'
-
+# require 'ftools'
+require "fileutils"
+# require 'ftools'
 class ContactDatabase
 
   @@contact_array = []
@@ -17,11 +18,11 @@ class ContactDatabase
         primary_key = contact[0]
         name = contact[1]
         email = contact[2]
-        new_contact = Contact.new(primary_key, name, email)
-        array_result << new_contact
+        new_contact = Contact.create(primary_key, name, email)
+        # array_result << new_contact
         #puts new_contact.inspect
       end
-      return array_result
+      # return array_result
     end
     #end most important method
 

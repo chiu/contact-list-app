@@ -4,18 +4,19 @@ require 'pry'
 
 
 
+
 #load data from csv file
 ContactDatabase.wipe_clean_file
-# contacts = ContactDatabase.load_from_csv_into_array
+contacts = ContactDatabase.load_from_csv_into_array
 # Contact.contacts = contacts
-# Contact.print_contact_array
-# Contact.create(4, "coolguy", "coolguy@gmail.com")
+Contact.print_contact_array
+Contact.create(4, "coolguy", "coolguy@gmail.com")
 
 
 
 
-# print 'enter the keyword help for the help menu: ' 
-# user_input = gets.chomp.downcase
+print 'enter the keyword help for the help menu: ' 
+user_input = gets.chomp.downcase
 
 # case user_input
 

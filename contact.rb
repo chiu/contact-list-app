@@ -4,7 +4,7 @@ class Contact
   @@contact_array = []
   @@contact_id = 0
 
-  
+
 
   def initialize(primary_key , name, email)
     # TODO: assign local variables to instance variables
@@ -23,11 +23,11 @@ class Contact
   ## Class Methods
   class << self
 
-   def contacts=(contacts)
-    @@contact_array = contacts
-  end
+  #  def contacts=(contacts)
+  #   @@contact_array = contacts
+  # end
 
-  
+
   def create(id, name, email)
       # TODO: Will initialize a contact as well as add it to the list of contacts
       new_contact = self.new(id, name, email)
@@ -53,11 +53,11 @@ class Contact
       # TODO: Show a contact, based on ID
     end
 
-    def get_contact_array
-      puts @@contact_array
-      return @@contact_array
+    # def get_contact_array
+    #   puts @@contact_array
+    #   return @@contact_array
 
-    end
+    # end
 
     def print_contact_array
       puts @@contact_array.inspect
@@ -68,6 +68,7 @@ class Contact
 end
 
 
-Contact.all
-Contact.find(5)
+# Contact.all
+# Contact.find(5)
+# Contact.contact_array
 
