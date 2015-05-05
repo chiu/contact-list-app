@@ -1,7 +1,8 @@
 class Contact
 
   attr_accessor :name, :email
-  
+  @@contact_array = []
+
   @@contact_id = 0
 
   def initialize(contact_id , name, email)
@@ -20,9 +21,6 @@ class Contact
 
   ## Class Methods
   class << self
-    attr_accessor :contact_array
-    @@contact_array = []
-
     def create(name, email)
       # TODO: Will initialize a contact as well as add it to the list of contacts
       new_contact = self.new(@@contact_id, name, email)
@@ -45,9 +43,14 @@ class Contact
       # TODO: Show a contact, based on ID
     end
 
+    def get_contact_array
+      puts @@contact_array
+      return @@contact_array
+
+    end
 
     def print_contact_array
-      puts @@contact_array
+      puts @@contact_array.inspect
     end
     
   end

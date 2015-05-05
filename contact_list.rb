@@ -9,8 +9,8 @@ require_relative 'contact_database'
 print 'enter the keyword help for the help menu: ' 
 
 
-user_input = gets.chomp.downcase
-
+#user_input = gets.chomp.downcase
+user_input = 'new'
 
 case user_input
 
@@ -31,9 +31,12 @@ when 'new'
 
   puts trial_contact = Contact.create("adam smith", "adam@gmail.com").inspect
  #puts trial_contact.print_contact_array
- #puts current_contact.print_contact_array
+ puts "test"
+ Contact.print_contact_array
+ puts "test"
 # puts Contact.contact_array.inspect
-  puts Contact.contact_array
+  #puts Contact.contact_array
+  puts Contact.get_contact_array.inspect
 
 else
   puts 'You just making it up!'
