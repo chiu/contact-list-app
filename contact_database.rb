@@ -47,17 +47,19 @@ class ContactDatabase
       end
     end
 
-    def final_populate_array
+    def load_from_csv_into_array
       puts "test begin"
       customers = CSV.read('touch-contacts.csv')
+      array_result = []
       CSV.foreach('touch-contacts.csv') do |contact|
         primary_key = contact[0]
         name = contact[1]
         email = contact[2]
         new_contact = Contact.new(primary_key,name,email)
-        @@contact_array << new_contact
+        array_result << new_contact
         #puts new_contact.inspect
       end
+       return array_result
     end
 
     def final_print_array

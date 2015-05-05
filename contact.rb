@@ -4,6 +4,8 @@ class Contact
   @@contact_array = []
   @@contact_id = 0
 
+  
+
   def initialize(primary_key , name, email)
     # TODO: assign local variables to instance variables
     @primary_key = primary_key
@@ -20,7 +22,13 @@ class Contact
 
   ## Class Methods
   class << self
-    def create(id, name, email)
+
+   def contacts=(contacts)
+    @@contact_array = contacts
+  end
+
+  
+  def create(id, name, email)
       # TODO: Will initialize a contact as well as add it to the list of contacts
       new_contact = self.new(id, name, email)
       @@contact_array << new_contact

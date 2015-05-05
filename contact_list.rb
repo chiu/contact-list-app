@@ -5,8 +5,9 @@ require 'pry'
 
 
 
-ContactDatabase.final_populate_array
-ContactDatabase.final_print_array
+contacts = ContactDatabase.load_from_csv_into_array
+Contact.contacts = contacts
+Contact.print_contact_array
 
 puts "other tests for putting text file directly into array"
 
