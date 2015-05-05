@@ -5,7 +5,8 @@ require 'pry'
 
 
 
-
+ContactDatabase.final_populate_array
+ContactDatabase.final_print_array
 
 puts "other tests for putting text file directly into array"
 
