@@ -1,5 +1,6 @@
 ## TODO: Implement CSV reading/writing
 require 'csv'
+require 'ftools'
 
 class ContactDatabase
 
@@ -7,12 +8,38 @@ class ContactDatabase
 
   class << self
 
-    def open_file
-      fname = "contact_list.txt"
-      somefile = File.open(fname, "w")
-      somefile.puts "Hello file!"
-      somefile.close
+    #most important method
+    def load_from_csv_into_array
+      puts "test begin"
+      customers = CSV.read('touch-contacts.csv')
+      array_result = []
+      CSV.foreach('touch-contacts.csv') do |contact|
+        primary_key = contact[0]
+        name = contact[1]
+        email = contact[2]
+        new_contact = Contact.new(primary_key, name, email)
+        array_result << new_contact
+        #puts new_contact.inspect
+      end
+      return array_result
     end
+    #end most important method
+
+    def wipe_clean_file
+      CSV.open('touch-contact.csv', 'w') do |csv_object|
+        csv_object <<  [nil]
+      end
+    end
+
+
+    def seed_file
+
+      copy('test.csv' , 'touch-contacts.csv' , verbose = false)
+
+    end
+
+
+
 
     def csv_add_contact(current_contact, current_contact_id_wow)
       CSV.open('touch-contacts.csv', 'a') do |csv_object|
@@ -47,20 +74,7 @@ class ContactDatabase
       end
     end
 
-    def load_from_csv_into_array
-      puts "test begin"
-      customers = CSV.read('touch-contacts.csv')
-      array_result = []
-      CSV.foreach('touch-contacts.csv') do |contact|
-        primary_key = contact[0]
-        name = contact[1]
-        email = contact[2]
-        new_contact = Contact.new(primary_key,name,email)
-        array_result << new_contact
-        #puts new_contact.inspect
-      end
-       return array_result
-    end
+
 
     def final_print_array
       puts @@contact_array.inspect
