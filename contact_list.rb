@@ -30,12 +30,11 @@ when 'new'
   puts current_contact.inspect
 
   puts trial_contact = Contact.create("adam smith", "adam@gmail.com").inspect
- #puts trial_contact.print_contact_array
- puts "test"
- Contact.print_contact_array
- puts "test"
-# puts Contact.contact_array.inspect
-  #puts Contact.contact_array
+
+  puts "test"
+  Contact.print_contact_array
+  puts "test"
+
   puts Contact.get_contact_array.inspect
 
 else
