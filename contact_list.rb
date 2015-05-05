@@ -2,6 +2,14 @@ require_relative 'contact'
 require_relative 'contact_database'
 require 'pry'
 
+
+
+
+
+
+puts "other tests for putting text file directly into array"
+
+
 print 'enter the keyword help for the help menu: ' 
 
 #user_input = 'new'
