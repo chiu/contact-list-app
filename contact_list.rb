@@ -48,21 +48,19 @@ when 'list'
     # print "#{contact.primary_key}: "
     # print "#{contact.name} "
     # puts "(#{contact.email})"
-      puts contact.to_s
+    puts contact.to_s
   end
 
 when 'show'
 
   puts "enter primary_key of user to find user: "
-   user_input_primary_key = gets.chomp.downcase
+  user_input_primary_key = gets.chomp.downcase
   found_flag = false
-   Contact.all.each do |contact|
-      if contact.primary_key == user_input_primary_key
-      print "#{contact.primary_key}: "
-      print "#{contact.name} "
-      puts "(#{contact.email})"
+  Contact.all.each do |contact|
+    if contact.primary_key == user_input_primary_key
+      puts contact.to_s
       found_flag = true
-   
+      
     end
 
   end
@@ -78,16 +76,14 @@ when 'show'
 when 'find'
 
   puts "enter primary_key of user to find user: "
-   user_input_primary_key = gets.chomp.downcase
+  user_input_primary_key = gets.chomp.downcase
   found_flag = false
-   Contact.all.each do |contact|
-      if contact.primary_key == user_input_primary_key
-      print "#{contact.primary_key}: "
-      print "#{contact.name} "
-      puts "(#{contact.email})"
+  Contact.all.each do |contact|
+    if contact.primary_key == user_input_primary_key
+      puts contact.to_s
 
       found_flag = true
-   
+      
     end
 
   end
