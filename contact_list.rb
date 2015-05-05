@@ -1,8 +1,8 @@
 require_relative 'contact'
 require_relative 'contact_database'
+require 'pry'
 
-
-
+#include "file_access"
 
 
 
@@ -29,13 +29,14 @@ when 'new'
   current_contact = Contact.new(77, 'maxwell Smith',  'maxgmail.com')
   puts current_contact.inspect
 
-  puts trial_contact = Contact.create("adam smith", "adam@gmail.com").inspect
 
-  puts "test"
-  Contact.print_contact_array
-  puts "test"
+  #puts trial_contact = Contact.create("adam smith", "adam@gmail.com").inspect
 
-  puts Contact.get_contact_array.inspect
+ # puts "test"
+ # Contact.print_contact_array
+ # puts "test"
+
+ # puts Contact.get_contact_array.inspect
 
 else
   puts 'You just making it up!'
@@ -43,4 +44,10 @@ end
 
 
 #puts current_contact.@@contact_array.inspect
+
+
+#ContactDatabase.open_file
+#ContactDatabase.add_contact(current_contact)
+
+ContactDatabase.csv_add_contact(current_contact)
 
