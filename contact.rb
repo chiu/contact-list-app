@@ -1,6 +1,6 @@
 class Contact
 
-  attr_accessor :name, :email
+  attr_accessor :name, :email, :contact_id
   @@contact_array = []
 
   @@contact_id = 0

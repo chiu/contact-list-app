@@ -1,7 +1,6 @@
 ## TODO: Implement CSV reading/writing
 require 'csv'
 
-
 class ContactDatabase
 
   class << self
@@ -13,33 +12,39 @@ class ContactDatabase
       somefile.close
     end
 
-
-    def add_contact(current_contact)
-      fname = "contact_list.txt"
-      somefile = File.open(fname, "w")
-      somefile.puts "contact: #{current_contact.inspect}"
-      somefile.close
-    end
-
-    def csv_add_contact(current_contact)
-
-      CSV.open('our-new-customers-file.csv', 'a') do |csv_object|
-        
-
-        #string_needed = current_contact.inspect
-        csv_object << ['chris', 'chris@gmail.com']
-        csv_object <<  [current_contact.name, current_contact.email]
-        #csv_object << ['44','66']
-        
-      
+    def csv_add_contact(current_contact, current_contact_id_wow)
+      CSV.open('touch-contacts.csv', 'a') do |csv_object|
+        csv_object <<  [current_contact_id_wow, current_contact.name, current_contact.email]   
+       
+       # write_contact_id(current_contact_id_wow)
       end
     end
 
+    def list
+      lines = File.open('touch-contacts.csv', "r"){ |datafile| datafile.readlines }
+      lines.each{|line| puts line}
+    end
+
+
+    def write_contact_id(current_contact_id_wow)
+      CSV.open('contact-id.csv', 'w') do |csv_object|
+        csv_object <<  [current_contact_id_wow]
+      end
+    end
+
+     def read_contact_id
+     lines = File.open('contact-id.csv', "r"){ |datafile| datafile.readlines }
+      lines.each{|line|
+       puts line 
+       return line.to_i
+      }
+    end
 
   end
 
-
 end
+
+#end
 
 
 
