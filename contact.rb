@@ -28,7 +28,6 @@ class Contact
       @@contact_id += 1
       return new_contact
 
-
     end
 
     def find(index)

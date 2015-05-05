@@ -15,8 +15,6 @@ class ContactDatabase
     def csv_add_contact(current_contact, current_contact_id_wow)
       CSV.open('touch-contacts.csv', 'a') do |csv_object|
         csv_object <<  [current_contact_id_wow, current_contact.name, current_contact.email]   
-       
-       # write_contact_id(current_contact_id_wow)
       end
     end
 
@@ -25,6 +23,12 @@ class ContactDatabase
       lines.each{|line| puts line}
     end
 
+    def find(person_name)
+      lines = File.open('touch-contacts.csv', "r"){ |datafile| datafile.readlines }
+      lines.each{|line| 
+        puts "found guy:" + line if line.include?(person_name)
+      }
+    end
 
     def write_contact_id(current_contact_id_wow)
       CSV.open('contact-id.csv', 'w') do |csv_object|
@@ -32,15 +36,15 @@ class ContactDatabase
       end
     end
 
-     def read_contact_id
+    def read_contact_id
      lines = File.open('contact-id.csv', "r"){ |datafile| datafile.readlines }
-      lines.each{|line|
+     lines.each{|line|
        puts line 
        return line.to_i
-      }
-    end
+     }
+   end
 
-  end
+ end
 
 end
 
