@@ -1,6 +1,6 @@
 class Contact
 
-  attr_accessor :name, :email, :contact_id
+  attr_accessor :name, :email, :primary_key
   @@contact_array = []
   @@contact_id = 0
 
@@ -18,23 +18,19 @@ class Contact
 
   def to_s
     # TODO: return string representation of Contact
+    return "#{@primary_key}: #{@name} #{@email})"
   end
 
   ## Class Methods
   class << self
 
-  #  def contacts=(contacts)
-  #   @@contact_array = contacts
-  # end
 
 
-  def create(id, name, email)
+    def create(id, name, email)
       # TODO: Will initialize a contact as well as add it to the list of contacts
       new_contact = self.new(id, name, email)
       @@contact_array << new_contact
-      #@@contact_id += 1
       return new_contact
-
     end
 
     def find(index)
@@ -53,11 +49,6 @@ class Contact
       # TODO: Show a contact, based on ID
     end
 
-    # def get_contact_array
-    #   puts @@contact_array
-    #   return @@contact_array
-
-    # end
 
     def print_contact_array
       puts @@contact_array.inspect
@@ -68,7 +59,5 @@ class Contact
 end
 
 
-# Contact.all
-# Contact.find(5)
-# Contact.contact_array
+
 
