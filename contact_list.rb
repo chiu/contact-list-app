@@ -7,6 +7,7 @@ require 'pry'
 
 #load data from csv file
 ContactDatabase.wipe_clean_file
+ContactDatabase.seed_file
 contacts = ContactDatabase.load_from_csv_into_array
 # Contact.contacts = contacts
 Contact.print_contact_array

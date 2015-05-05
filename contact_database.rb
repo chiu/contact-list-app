@@ -34,9 +34,7 @@ class ContactDatabase
 
 
     def seed_file
-
-      copy('test.csv' , 'touch-contacts.csv' , verbose = false)
-
+      FileUtils.copy_file('seed-touch-contacts.csv' , 'touch-contacts.csv' , false,  true)
     end
 
 
